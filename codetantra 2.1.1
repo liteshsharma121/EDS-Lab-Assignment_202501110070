@@ -1,0 +1,43 @@
+def Add(x):
+	lst.append(x)
+	print(f"List after adding: {lst}")
+
+def Remove(x):
+	if x in lst:
+		lst.remove(x)
+		print(f"List after removing: {lst}")
+	else:
+		print("Element not found")
+
+def Display():
+	if len(lst)==0:
+		print("List is empty")
+	else:
+		print(lst)
+
+
+
+
+
+lst = list()
+for i in range(1,100):
+	print("1. Add\n2. Remove\n3. Display\n4. Quit")
+	choice = int(input("Enter choice: "))
+	if choice==1:
+		x = int(input("Integer: "))
+		Add(x)
+
+	elif choice==2:
+		if len(lst)==0:
+			print("List is empty")
+		else:
+			x = int(input("Integer: "))
+			Remove(x)
+
+	elif choice==3:
+		Display()
+
+	elif choice==4:
+		break
+	else:
+		print("Invalid choice")
