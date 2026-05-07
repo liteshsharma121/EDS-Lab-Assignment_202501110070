@@ -1,0 +1,32 @@
+# Program to calculate aggregate percentage and grade
+
+# Input: number of courses
+n = int(input())
+
+# Input: marks for each course
+marks = list(map(int, input().split()))
+
+# Check if the number of marks matches the number of courses
+if len(marks) != n:
+    print("Error: Number of marks does not match number of courses.")
+else:
+    # Check if student failed any course
+    if any(m < 40 for m in marks):
+        print("Fail")
+    else:
+        # Calculate aggregate percentage
+        aggregate = sum(marks) / n
+
+        # Print aggregate percentage formatted to two decimals with label
+        print(f"Aggregate Percentage: {aggregate:.2f}")
+
+        # Determine grade with label
+        if aggregate > 75:
+            print("Grade: Distinction")
+        elif aggregate >= 60:
+            print("Grade: First Division")
+        elif aggregate >= 50:
+            print("Grade: Second Division")
+        elif aggregate >= 40:
+            print("Grade: Third Division")
+
