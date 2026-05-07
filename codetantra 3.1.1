@@ -1,0 +1,21 @@
+import numpy as np
+
+
+
+r, c = map(int, input().split())
+
+
+elements = []
+for _ in range(r):
+    row_data = list(map(int, input().split()))
+    elements.extend(row_data)
+
+
+matrix = np.array(elements).reshape(r, c)
+
+
+print(matrix)
+print(matrix.ndim)
+print(matrix.shape)
+print(matrix.size)
+
