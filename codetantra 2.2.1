@@ -1,0 +1,8 @@
+x = list(map(int,input().split()))
+y = int(input())
+for i in range(len(x)):
+	if y == x[i]:
+		print(i)
+		break
+if y != x[i]:
+	print("Not found")
