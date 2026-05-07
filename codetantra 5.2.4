@@ -1,0 +1,35 @@
+import pandas as pd
+
+# Data Cleaning
+data['Age'].fillna(data['Age'].median(), inplace=True)
+data['Embarked'].fillna(data['Embarked'].mode()[0], inplace=True)
+data.drop('Cabin', axis=1, inplace=True)
+
+# Convert categorical features to numeric
+data['Sex'] = data['Sex'].map({'male': 0, 'female': 1})
+data = pd.get_dummies(data, columns=['Embarked'], drop_first=True)
+
+# Write your code here for Bar Plot for Survival by Gender
+
+# Group data by Sex and count survival
+grouped_data = data.groupby('Sex')['Survived'].value_counts().unstack().fillna(0)
+
+# Ensure correct column order (0 = Not Survived, 1 = Survived)
+grouped_data = grouped_data[[0, 1]]
+
+# Plot stacked bar chart
+grouped_data.plot(kind='bar', stacked=True)
+
+# Labels and title
+plt.title("Survival by Gender")
+plt.xlabel("Gender")
+plt.ylabel("Count")
+
+# Set x-axis labels (0 = Male, 1 = Female)
+plt.xticks([0, 1], ['0', '1'])
+# Legend
+plt.legend(['Not Survived', 'Survived'])
+
+# Display plot
+plt.show()
+
