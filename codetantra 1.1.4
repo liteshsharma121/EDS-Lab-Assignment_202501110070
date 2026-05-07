@@ -1,0 +1,13 @@
+num = int(input())
+
+# Initialize reversed number
+rev = 0
+
+# Reverse the digits
+while num != 0:
+    digit = num % 10
+    rev = rev * 10 + digit
+    num = num // 10
+
+# Print the reversed number
+print(rev)
